@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="coin_width">50dp</dimen>
+    <dimen name="coin_100dp">100dp</dimen>
+    <dimen name="setting_popup_width">300dp</dimen>
+    <dimen name="setting_popup_height">100dp</dimen>
+</resources>

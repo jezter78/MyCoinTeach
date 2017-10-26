@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">My Coin</string>
+    <string name="start">Start</string>
+    <string name="submit_answer">Submit Answer</string>
+     
+    //for spinner quantity
+    <string-array name="coin_spinner_array">       
+        <item>1 Coin</item>       
+        <item>2 Coins</item>       
+        <item>3 Coins</item>
+        <item>4 Coins</item>
+        <item>5 Coins</item>
+        <item>6 Coins</item>
+        <item>7 Coins</item>
+        <item>8 Coins</item>
+        <item>9 Coins</item>
+        <item>10 Coins</item>   
+    </string-array>
+</resources>
