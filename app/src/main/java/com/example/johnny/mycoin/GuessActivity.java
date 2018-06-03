@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -56,9 +58,9 @@ public class GuessActivity extends AppCompatActivity implements View.OnClickList
     final static int EASY_MODE_COIN_QUANTITY = 5;
     final static int MEDIUM_MODE_COIN_QUANTITY = 10;
     final static int HARD_MODE_COIN_QUANTITY = 20;
-    final static int EASY_MODE_TIME = 30000;
-    final static int MEDIUM_MODE_TIME = 20000;
-    final static int HARD_MODE_TIME = 10000;
+    final static int EASY_MODE_TIME = 60000;
+    final static int MEDIUM_MODE_TIME = 60000;
+    final static int HARD_MODE_TIME = 60000;
     final static double COIN_SIZE_DENOMINATOR = 16.75; //act as denomination to calculate other coin sizes
     final static int TRANSLATE_DISTANCE = 1000;       //coin move in distance in pixel
 
@@ -78,7 +80,7 @@ public class GuessActivity extends AppCompatActivity implements View.OnClickList
         totalScore = (TextView) findViewById(R.id.guess_score);
         modeDisplay = (TextView) findViewById(R.id.txt_mode);
         showTimeLeft = (TextView) findViewById(R.id.txt_timer);
-        finalScoreView = (TextView) findViewById(R.id.txt_finalscore) ;
+        //finalScoreView = (TextView) findViewById(R.id.txt_finalscore) ;
         answer = (EditText) findViewById(R.id.guess_editText1);
 
         coinRelativeLayout = new RelativeLayout(this);
@@ -311,13 +313,19 @@ public class GuessActivity extends AppCompatActivity implements View.OnClickList
 
         } else {
 
+            String text = "The result is: $" + finalCoin;
+
+            Toast resultToast = Toast.makeText(GuessActivity.this, text, Toast.LENGTH_SHORT);
+            resultToast.setGravity(Gravity.CENTER, 0, 100);
+            resultToast.show();
+
             resultIcon.setImageResource(R.drawable.failure);
             resultIcon.setVisibility(View.VISIBLE);
             wrongSound.start();
         }
 
         totalScore.setText("Score:  " + totalPass + "/" + totalAttempt);
-        startCountAnimation();
+        //startCountAnimation();
 
     }
 
